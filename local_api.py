@@ -7,9 +7,9 @@ url = "http://127.0.0.1:8000"
 r = requests.get(url=url)
 
 # print the status code
-print(r.status_code)
+print(f"Status Code: {r.status_code}")
 # print the welcome message
-print(r.text)
+print(f"Result: {r.json()['greeting']}")
 
 
 
@@ -31,9 +31,9 @@ data = {
 }
 
 # send a POST using the data above
-r = requests.post(url=url, data=json.dumps(data))
+r = requests.post(url=url + "/data", data=json.dumps(data))
 
 # print the status code
-print(r.status_code)
+print(f"Status Code: {r.status_code}")
 # print the result
-print(r.json())
+print(f"Result: {r.json()['result']}")
